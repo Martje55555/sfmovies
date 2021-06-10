@@ -11,5 +11,4 @@ before_script:
   - yarn db:reset
 script:
   - yarn test
-  - yarn enforce
   - yarn lint
