@@ -19,14 +19,14 @@
     "lint": "eslint .",
     "db:seed": "yarn db:reset && knex seed:run --knexfile db/index.js",
     "db:migrate": "knex migrate:latest --knexfile db/index.js",
-	  "db:migrate:make": "knex migrate:make --knexfile db/index.js",
+    "db:migrate:make": "knex migrate:make --knexfile db/index.js",
     "db:reset": "if [ \"$NODE_ENV\" != \"production\" ]; then dropdb $(node -p \"require('./config').DB_NAME\"); yarn run db:setup && yarn run db:migrate; fi",
     "db:rollback": "knex migrate:rollback --knexfile db/index.js",
     "db:setup": "if [ \"$NODE_ENV\" != \"production\" ]; then createdb -O $(node -e \"var c = require('./config'); console.log(c.DB_USER, c.DB_NAME);\"); fi",
     "db:setup:user": "if [ \"$NODE_ENV\" != \"production\" ]; then createuser $(node -p \"require('./config').DB_USER\"); fi",
-		"db:seed:test": "NODE_ENV=test yarn db:seed",
-		"db:reset:test": "NODE_ENV=test yarn db:reset",
-		"db:setup:test": "NODE_ENV=test yarn db:setup",
+    "db:seed:test": "NODE_ENV=test yarn db:seed",
+    "db:reset:test": "NODE_ENV=test yarn db:reset",
+    "db:setup:test": "NODE_ENV=test yarn db:setup",
     "release:patch": "changelog -p && git add CHANGELOG.md && git commit -m 'updated CHANGELOG.md' && yarn version --new-version patch && git push origin && git push origin --tags",
     "release:minor": "changelog -m && git add CHANGELOG.md && git commit -m 'updated CHANGELOG.md' && yarn version --new-version minor && git push origin && git push origin --tags",
     "release:major": "changelog -M && git add CHANGELOG.md && git commit -m 'updated CHANGELOG.md' && yarn version --new-version major && git push origin && git push origin --tags",
@@ -38,6 +38,7 @@
   "dependencies": {
     "bookshelf": "^1.2.0",
     "hapi": "16.6.1",
+    "hapi-bookshelf-serializer": "2.1.0",
     "knex": "^0.95.6",
     "pg": "^8.6.0"
   }
