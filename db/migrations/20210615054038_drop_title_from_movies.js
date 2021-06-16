@@ -2,7 +2,7 @@
 
 exports.up = function (Knex) {
   return Knex.schema.table('movies', (table) => {
-    table.dropColumn('name');
+    table.dropColumn('title');
   })
     .then(() => {
       return Knex.raw('ALTER TABLE movies ADD CONSTRAINT movies_name_not_null CHECK (name IS NOT NULL) NOT VALID')

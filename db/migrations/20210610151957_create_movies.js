@@ -3,7 +3,7 @@
 exports.up = (Knex) => {
   return Knex.schema.createTable('movies', (table) => {
     table.increments('id').primary();
-    table.text('name').notNullable();
+    table.text('title').notNullable();
     table.integer('release_year');
   });
 };
